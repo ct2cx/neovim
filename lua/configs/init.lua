@@ -1,0 +1,18 @@
+local o = vim.opt
+local c = vim.cmd
+
+o.tabstop = 4
+o.shiftwidth = 4
+o.sts = 4
+o.smarttab = true
+o.autoindent = true
+o.smartindent = true
+o.number = true
+o.relativenumber = true
+o.termguicolors = true
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+o.laststatus = 3
+o.showmode = false
+o.mouse = ''
+o.confirm = true
