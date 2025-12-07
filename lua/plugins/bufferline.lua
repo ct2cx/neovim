@@ -25,7 +25,7 @@ return {
 				},
 				name_formatter = function(buf)
 					if buf.name == "" or buf.name == "[No Name]" then
-						return "[Scratch]"
+						return "*scratch*"
 					end
 					return buf.name
 				end,

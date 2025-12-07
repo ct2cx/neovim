@@ -73,7 +73,7 @@ M.file_name = {
 		if file ~= '' then
 			file = self.file
 		else
-			file = '[Scratch]'
+			file = '*scratch*'
 		end
 		if self.ro then
 			file = file .. ' [-]'
