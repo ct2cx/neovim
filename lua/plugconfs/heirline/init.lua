@@ -70,7 +70,9 @@ M.file_block = {
 M.file_name = {
 	provider = function(self)
 		local file = self.file
-		if file ~= '' then
+		if file == 'NvimTree_1' then
+			file = 'NvimTree'
+		elseif file ~= '' then
 			file = self.file
 		else
 			file = '*scratch*'
@@ -86,7 +88,11 @@ M.file_name = {
 
 M.file_icon = {
 	init = function(self)
-		self.icon, self.color = require('nvim-web-devicons').get_icon_color(self.file, self.ext, {default=true})
+		if self.file == 'NvimTree_1' then
+			self.icon = ''
+		else
+			self.icon, self.color = require('nvim-web-devicons').get_icon_color(self.file, self.ext, {default=true})
+		end
 	end,
 	provider = function(self)
 		return self.icon
