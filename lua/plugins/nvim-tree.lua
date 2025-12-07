@@ -4,6 +4,9 @@ return {
 	opts = {
 		hijack_cursor = true,
 		hijack_netrw = false,
+		update_focused_file = {
+			enable = true
+		},
 		renderer = {
 			root_folder_label = false,
 			indent_markers = {
