@@ -5,7 +5,9 @@ return {
 			options = {
 				show_buffer_close_icons = false,
 				close_icon = '',
-				modified_icon = "",
+				modified_icon = '',
+				left_trunc_marker = '󰧘',
+				right_trunc_marker = '󰧚',
 				tab_size = 20,
 				style_preset = {
 					require('bufferline').style_preset.no_italic,
