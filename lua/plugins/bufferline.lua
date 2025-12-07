@@ -1,7 +1,6 @@
 return {
 	'akinsho/bufferline.nvim',
 	config = function()
-		local funcs = require('funcs')
 		require('bufferline').setup {
 			options = {
 				show_buffer_close_icons = false,

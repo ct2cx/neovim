@@ -1,4 +1,3 @@
-local funcs = require('funcs')
 return {
 	{
 		"catppuccin/nvim", name = "catppuccin", priority = 1000,
