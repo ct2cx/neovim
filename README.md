@@ -1,4 +1,6 @@
-Lightweight neovim configuration under 500 LOC. Includes **bufferline**, **oil.nvim**, **nvim-tree**, **nvim-treesitter**, **gruvbox-material** theme and a custom made statusline with **heirline**. Doesn't have LSP integration.
+Lightweight neovim configuration under 500 LOC. Includes **bufferline**, **oil.nvim**, **nvim-tree**, **nvim-treesitter**, **gruvbox-material**, **catppuccin** theme among other plugins, and a custom made statusline with **heirline**. Doesn't have LSP integration.
 
-![Screenshot](./media/screenshot.png)
-![Screenshot-light](./media/screenshot_light.png)
+![Gruvbox](./media/gruvbox.png)
+![Gruvbox-light](./media/gruvbox-light.png)
+![Catppuccin-Macchiato](./media/catppuccin-macchiato.png)
+![Catppuccin-Latte](./media/catppuccin-latte.png)
