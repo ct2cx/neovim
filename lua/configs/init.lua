@@ -16,3 +16,5 @@ o.laststatus = 3
 o.showmode = false
 o.mouse = ''
 o.confirm = true
+o.cul = true
+o.culopt = 'number'
