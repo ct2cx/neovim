@@ -2,7 +2,7 @@ local utils = require('heirline.utils')
 local M = {}
 
 M.align = { provider = '%=' }
-M.spacing = { provider = '  ' }
+M.spacing = { provider = string.rep(' ', 3) }
 
 M.vimode_block = {
 	init = function(self)
@@ -45,15 +45,15 @@ M.vimode_block = {
 
 M.mode = {
 	provider = function(self)
-		local mode = self.mode_stat[self.current_mode]
+		local mode = '󰄯'
 		if mode == nil then
-			return ' ? '
+			return mode
 		else
-			return ' ' .. mode  .. ' '
+			return ' ' .. mode
 		end
 	end,
 	hl = function(self)
-		return { bg = self.mode_colors[self.current_mode], fg = 'bg' }
+		return { fg = self.mode_colors[self.current_mode] }
 	end
 }
 
@@ -64,6 +64,19 @@ M.file_block = {
 		self.ro = vim.bo.readonly
 		self.modified = vim.bo.modified
 		self.ext = vim.fn.expand('%:e')
+	end,
+}
+
+M.file_icon = {
+	init = function(self)
+		if self.file == 'NvimTree_1' then
+			self.icon = '󰝰'
+		else
+			self.icon, self.color = require('nvim-web-devicons').get_icon_color(self.file, self.ext, {default=true})
+		end
+	end,
+	provider = function(self)
+		return self.icon .. ' '
 	end,
 }
 
@@ -78,7 +91,7 @@ M.file_name = {
 			file = '*scratch*'
 		end
 		if self.ro then
-			file = file .. ' [-]'
+			file = file .. ' [%%]'
 		elseif self.modified then
 			file =  file .. ' [+]'
 		end
@@ -86,38 +99,24 @@ M.file_name = {
 	end
 }
 
-M.file_icon = {
-	init = function(self)
-		if self.file == 'NvimTree_1' then
-			self.icon = ''
-		else
-			self.icon, self.color = require('nvim-web-devicons').get_icon_color(self.file, self.ext, {default=true})
-		end
-	end,
-	provider = function(self)
-		return self.icon
-	end,
-}
-
 M.dir_block = {
 	provider = function(self)
-		return ' DIR '
+		return '󰝰 '
 	end,
-	hl = { bg = 'color1', fg = 'bg' }
+	hl = { fg = 'color1' }
 }
 
 M.curr_dir = {
 	provider = function(self)
-		return ' ' .. self.parent .. ' '
+		return self.parent
 	end,
-	hl = { bg = 'gray' }
+	hl = { fg = M.dir_block.hl.fg }
 }
 
 M.line_nr = {
 	provider = function(self)
-		return ' %l:%c '
+		return '%l:%c '
 	end,
-	hl = { bg = 'gray' }
 }
 
 M.line_percent = {
@@ -125,12 +124,11 @@ M.line_percent = {
 		local total = vim.fn.line('$')
 		local current = vim.fn.line('.')
 		if current == 1 then
-			return ' 0%% '
+			return '0%%'
 		else
 			return string.format(" %.0f%%%% ", current/total*100)
 		end
 	end,
-	hl = { bg = 'gray' }
 }
 
 M.macro_block = {
@@ -139,16 +137,37 @@ M.macro_block = {
 		self.key = vim.fn.reg_recording()
 	end,
 	provider = function(self)
-		return ' MACRO '
+		return '󰌌 '
 	end,
-	hl = { bg = 'yellow', fg = 'bg'}
+	hl = { fg = 'yellow' }
 }
 
 M.macro_status = {
 	provider = function(self)
-		return ' @' .. self.key .. ' '
+		return self.key
 	end,
-	hl = { bg = 'gray', fg = 'fg' }
+	hl = { fg = M.macro_block.hl.fg }
+}
+
+M.file_size = {
+	provider = function(self)
+		local fsize = vim.fn.getfsize(vim.fn.expand('%'))  -- in bytes
+		local c = 1
+		local units = { '', 'k', 'M', 'G', 'T', 'P', 'E' }
+		if fsize <= 0 then
+			return '--'
+		end
+		while fsize > 1024 do
+			fsize = fsize / 1024
+			c = c + 1
+		end
+		if c == 1 then
+			fsize = string.format('%.f', fsize)
+		else
+			fsize = string.format('%.1f', fsize)
+		end
+		return string.format('%s%s', fsize, units[c])
+	end
 }
 
 function M:get_colors()
@@ -169,12 +188,12 @@ end
 function M:get_statusline()
 	return { hl = { bg = 'bg', fg = 'fg' },
 		utils.insert(self.vimode_block, self.mode),
-		self.spacing, utils.insert(self.file_block, self.file_icon),
-		self.spacing, utils.insert(self.file_block, self.file_name),
+		self.spacing, self.file_size,
+		self.spacing, utils.insert(self.file_block, self.file_icon, self.file_name),
+		self.spacing, self.line_percent,
 		self.align, utils.insert(self.macro_block, self.macro_status),
 		self.spacing, utils.insert(self.file_block, self.dir_block, self.curr_dir),
 		self.spacing, self.line_nr,
-		-- self.spacing, self.line_percent
 	}
 end
 
