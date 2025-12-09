@@ -25,6 +25,7 @@ vim.api.nvim_create_autocmd('ColorScheme', {
 		vim.api.nvim_set_hl(0, 'BufferLineDuplicateSelected', { fg = funcs:get_hl('Comment', 'fg'), bg = funcs:get_hl('Normal', 'bg') })
 		vim.api.nvim_set_hl(0, 'BufferLineDuplicateVisible', { link = 'BufferLineDuplicateSelected' })
 		vim.api.nvim_set_hl(0, 'BufferLineTruncMarker', { link = 'BufferLineDuplicateSelected' })
+		vim.api.nvim_set_hl(0, 'EndOfBuffer', { fg = funcs:get_hl('Normal', 'bg') })
 	end,
 	group = 'AfterPlugin'
 })
