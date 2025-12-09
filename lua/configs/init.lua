@@ -18,4 +18,3 @@ o.mouse = ''
 o.confirm = true
 o.cul = true
 o.culopt = 'number'
-o.cole = 1
