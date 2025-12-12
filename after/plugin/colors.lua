@@ -19,10 +19,10 @@ vim.api.nvim_create_autocmd('ColorScheme', {
 		vim.api.nvim_set_hl(0, 'BufferLineTabClose', { bg = funcs:get_hl('DiagnosticError', 'fg'), fg = funcs:get_hl('Normal', 'bg') })
 		vim.api.nvim_set_hl(0, 'BufferLineModified', { link = 'BufferLineBackground' })
 		vim.api.nvim_set_hl(0, 'BufferLineModifiedSelected', { link = 'Normal' })
-		vim.api.nvim_set_hl(0, 'BufferLineModifiedVisible', { link = 'Normal' })
+		vim.api.nvim_set_hl(0, 'BufferLineModifiedVisible', { link = 'BufferLineSelected' })
 		vim.api.nvim_set_hl(0, 'BufferLineDuplicate', { link = 'BufferLineBackground' })
 		vim.api.nvim_set_hl(0, 'BufferLineDuplicateSelected', { fg = funcs:get_hl('Comment', 'fg'), bg = funcs:get_hl('Normal', 'bg') })
-		vim.api.nvim_set_hl(0, 'BufferLineDuplicateVisible', { link = 'BufferLineDuplicateSelected' })
+		vim.api.nvim_set_hl(0, 'BufferLineDuplicateVisible', { link = 'BufferLineSelected' })
 		vim.api.nvim_set_hl(0, 'BufferLineTruncMarker', { link = 'BufferLineDuplicateSelected' })
 		vim.api.nvim_set_hl(0, 'EndOfBuffer', { fg = funcs:get_hl('Normal', 'bg') })
 	end,
