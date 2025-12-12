@@ -5,12 +5,11 @@ vim.api.nvim_create_augroup('AfterPlugin', { clear = false })
 vim.api.nvim_create_autocmd('ColorScheme', {
 	pattern = '*',
 	callback = function(args)
-		vim.api.nvim_set_hl(0, 'NormalFloat', { bg = funcs:get_hl('StatusLine', 'bg') })
 		vim.api.nvim_set_hl(0, 'NvimTreeCursorLine', { link = 'CursorLine' })
 		vim.api.nvim_set_hl(0, 'NvimTreeWinSeparator', { fg = funcs:get_hl('Normal', 'bg') })
 		vim.api.nvim_set_hl(0, 'BufferLineBackground', { fg = funcs:get_hl('StatuslineNC', 'fg'), bg = funcs:get_hl('Statusline', 'bg') })
 		vim.api.nvim_set_hl(0, 'BufferLineBufferSelected', { link = 'Normal' })
-		vim.api.nvim_set_hl(0, 'BufferLineBufferVisible', { link = 'Normal' })
+		vim.api.nvim_set_hl(0, 'BufferLineBufferVisible', { link = 'BufferLineBackground' })
 		vim.api.nvim_set_hl(0, 'BufferLineFill', { link = 'Statusline' })
 		vim.api.nvim_set_hl(0, 'BufferLineOffsetSeparator', { fg = funcs:get_hl('Normal', 'bg'), bg = funcs:get_hl('Normal', 'bg') })
 		vim.api.nvim_set_hl(0, 'BufferLineIndicatorSelected', { link = 'BufferLineOffsetSeparator' })
