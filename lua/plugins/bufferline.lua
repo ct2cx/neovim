@@ -20,8 +20,7 @@ return {
 					{
 						filetype = 'NvimTree',
 						text = '',
-						separator = true,
-						highlight = 'NvimTreeNormal'
+						separator = false,
 					}
 				},
 				name_formatter = function(buf)
