@@ -3,7 +3,7 @@ local c = vim.cmd
 
 o.tabstop = 4
 o.shiftwidth = 4
-o.sts = 4
+o.softtabstop = 4
 o.smarttab = true
 -- o.autoindent = true
 -- o.smartindent = true
