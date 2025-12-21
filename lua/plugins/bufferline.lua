@@ -21,6 +21,7 @@ return {
 						filetype = 'NvimTree',
 						text = '',
 						separator = false,
+						highlight = 'NvimTreeNormal'
 					}
 				},
 				name_formatter = function(buf)
