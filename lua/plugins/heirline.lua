@@ -1,7 +1,7 @@
 return {
 	'rebelot/heirline.nvim',
 	config = function()
-		local plugconf = require('plugconfs.heirline')
+		local plugconf = require('plugconfs.heirline.doom')
 		local utils = require('heirline.utils')
 
 		vim.api.nvim_create_augroup('Heirline', { clear = true })
