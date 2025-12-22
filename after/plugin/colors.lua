@@ -37,4 +37,4 @@ vim.api.nvim_create_autocmd('Colorscheme', {
 })
 
 -- Specify you preferred colorscheme
-vim.cmd.colorscheme('gruvbox-material')
+vim.cmd.colorscheme('onedark')
