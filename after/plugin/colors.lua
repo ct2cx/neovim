@@ -9,7 +9,7 @@ vim.api.nvim_create_autocmd('ColorScheme', {
 		vim.api.nvim_set_hl(0, 'NvimTreeWinSeparator', { fg = funcs:get_hl('Normal', 'bg') })
 		vim.api.nvim_set_hl(0, 'BufferLineBackground', { fg = funcs:get_hl('Comment', 'fg'), bg = funcs:get_hl('CursorLine', 'bg') })
 		vim.api.nvim_set_hl(0, 'BufferLineBufferSelected', { link = 'Normal' })
-		vim.api.nvim_set_hl(0, 'BufferLineBufferVisible', { link = 'BufferLineBufferSelected' })
+		vim.api.nvim_set_hl(0, 'BufferLineBufferVisible', { link = 'BufferLineBackground' })
 		vim.api.nvim_set_hl(0, 'BufferLineFill', { bg = funcs:get_hl('CursorLine', 'bg') })
 		vim.api.nvim_set_hl(0, 'BufferLineIndicatorSelected', { link = 'BufferLineBufferSelected' })
 		vim.api.nvim_set_hl(0, 'BufferLineIndicatorVisible', { link = 'BufferLineBufferVisible' })
