@@ -24,6 +24,16 @@ vim.api.nvim_create_autocmd('ColorScheme', {
 		vim.api.nvim_set_hl(0, 'BufferLineDuplicateVisible', { link = 'BufferLineBackground' })
 		vim.api.nvim_set_hl(0, 'BufferLineTruncMarker', { link = 'BufferLineDuplicateSelected' })
 		vim.api.nvim_set_hl(0, 'EndOfBuffer', { fg = funcs:get_hl('Normal', 'bg') })
+		-- Comment out if not using rainbow-delimiters
+		local current = vim.api.nvim_get_hl(0, { name = 'MatchParen' })
+		vim.api.nvim_set_hl(0, 'MatchParen', {
+			fg = nil,
+			bg = current.bg,
+			bold = current.bold,
+			italic = current.italic,
+			underline = current.underline,
+		})
+		--
 	end,
 	group = 'AfterPlugin'
 })
