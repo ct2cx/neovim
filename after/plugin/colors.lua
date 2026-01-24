@@ -44,6 +44,8 @@ vim.api.nvim_create_autocmd('Colorscheme', {
 	callback = function(args)
 		vim.api.nvim_set_hl(0, 'NormalFloat', { bg = funcs:get_hl('StatusLine', 'bg') })
 	end
+	end,
+	group = 'GruvboxColorscheme'
 })
 
 -- Specify you preferred colorscheme
