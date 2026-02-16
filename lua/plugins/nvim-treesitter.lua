@@ -7,8 +7,7 @@ return {
 	opts = {
 		ensure_installed = { 
 			'c', 'lua', 'vim', 'vimdoc', 'markdown', 'markdown_inline',
-			'qmljs', 'qmldir', 'tmux', 'json', 'jsonc', 'kdl', 'fish',
-			'yaml', 'fennel', 'bash'
+			'tmux', 'fish', 'bash'
 		},
 		sync_install = false,
 		highlight = {
