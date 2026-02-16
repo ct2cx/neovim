@@ -15,9 +15,9 @@ vim.api.nvim_create_autocmd('ColorScheme', {
 		vim.api.nvim_set_hl(0, 'BufferLineIndicatorVisible', { link = 'BufferLineBufferVisible' })
 		vim.api.nvim_set_hl(0, 'BufferLineTab', { fg = funcs:get_hl('Normal', 'fg'), bg = funcs:get_hl('Visual', 'bg') })
 		vim.api.nvim_set_hl(0, 'BufferLineTabSelected', { fg = funcs:get_hl('Normal', 'bg'), bg = funcs:get_hl('DiagnosticInfo', 'fg') })
-		vim.api.nvim_set_hl(0, 'BufferLineTabClose', { bg = funcs:get_hl('DiagnosticError', 'fg'), fg = funcs:get_hl('Normal', 'bg') })
+		vim.api.nvim_set_hl(0, 'BufferLineTabClose', { bg = funcs:get_hl('Error', 'fg'), fg = funcs:get_hl('Normal', 'bg') })
 		vim.api.nvim_set_hl(0, 'BufferLineModified', { link = 'BufferLineBackground' })
-		vim.api.nvim_set_hl(0, 'BufferLineModifiedSelected', { fg = funcs:get_hl('DiagnosticError', 'fg'), bg = funcs:get_hl('Normal', 'bg') })
+		vim.api.nvim_set_hl(0, 'BufferLineModifiedSelected', { fg = funcs:get_hl('Error', 'fg'), bg = funcs:get_hl('Normal', 'bg') })
 		vim.api.nvim_set_hl(0, 'BufferLineModifiedVisible', { link = 'BufferLineBufferVisible' })
 		vim.api.nvim_set_hl(0, 'BufferLineDuplicate', { link = 'BufferLineBackground' })
 		vim.api.nvim_set_hl(0, 'BufferLineDuplicateSelected', { fg = funcs:get_hl('Comment', 'fg'), bg = funcs:get_hl('Normal', 'bg') })
@@ -25,14 +25,14 @@ vim.api.nvim_create_autocmd('ColorScheme', {
 		vim.api.nvim_set_hl(0, 'BufferLineTruncMarker', { link = 'BufferLineDuplicateSelected' })
 		vim.api.nvim_set_hl(0, 'EndOfBuffer', { fg = funcs:get_hl('Normal', 'bg') })
 		-- Comment out if not using rainbow-delimiters
-		local current = vim.api.nvim_get_hl(0, { name = 'MatchParen' })
-		vim.api.nvim_set_hl(0, 'MatchParen', {
-			fg = nil,
-			bg = current.bg,
-			bold = current.bold,
-			italic = current.italic,
-			underline = current.underline,
-		})
+		-- local current = vim.api.nvim_get_hl(0, { name = 'MatchParen' })
+		-- vim.api.nvim_set_hl(0, 'MatchParen', {
+		-- 	fg = nil,
+		-- 	bg = current.bg,
+		-- 	bold = current.bold,
+		-- 	italic = current.italic,
+		-- 	underline = current.underline,
+		-- })
 		--
 	end,
 	group = 'AfterPlugin'
@@ -48,4 +48,4 @@ vim.api.nvim_create_autocmd('Colorscheme', {
 })
 
 -- Specify you preferred colorscheme
-vim.cmd.colorscheme('catppuccin')
+vim.cmd.colorscheme('zenwritten')

@@ -1,5 +1,14 @@
 return {
 	{
+		'zenbones-theme/zenbones.nvim',
+		dependencies = "rktjmp/lush.nvim",
+		config = function()
+			vim.g.zenwritten = {
+				italic_strings = false
+			}
+		end
+	},
+	{
 		"navarasu/onedark.nvim",
 		opts = {
 			style = "dark"
