@@ -10,16 +10,16 @@ M.vimode_block = {
 	end,
 	static = {
 		mode_stat = {
-			i = 'INSERT',
-			n = 'NORMAL',
-			v = 'VISUAL',
-			V = 'V-LINE',
-			['\22'] = 'V-BLOCK',
-			s = 'SELECT',
-			S  = 'S-LINE',
-			R = 'REPLACE',
-			c = 'COMMAND',
-			t = 'TERMINAL'
+			i = 'I',
+			n = 'N',
+			v = 'V',
+			V = 'VL',
+			['\22'] = 'VB',
+			s = 'S',
+			S  = 'SL',
+			R = 'R',
+			c = 'C',
+			t = 'T'
 		},
 		mode_colors = {
 			i = 'green',
@@ -45,7 +45,7 @@ M.vimode_block = {
 
 M.mode = {
 	provider = function(self)
-		local mode = '󰄯'
+		local mode = self.mode_stat[self.current_mode]
 		if mode == nil then
 			return mode
 		else
