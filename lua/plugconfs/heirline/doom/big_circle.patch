@@ -1,0 +1,35 @@
+--- origin.lua	2026-03-15 00:58:11.311127116 +0600
++++ init.lua	2026-03-15 11:51:51.661793797 +0600
+@@ -9,18 +9,6 @@
+ 		self.current_mode = vim.fn.mode(0)
+ 	end,
+ 	static = {
+-		mode_stat = {
+-			i = 'I',
+-			n = 'N',
+-			v = 'V',
+-			V = 'VL',
+-			['\22'] = 'VB',
+-			s = 'S',
+-			S  = 'SL',
+-			R = 'R',
+-			c = 'C',
+-			t = 'T'
+-		},
+ 		mode_colors = {
+ 			i = 'green',
+ 			n = 'blue',
+@@ -45,12 +33,7 @@
+ 
+ M.mode = {
+ 	provider = function(self)
+-		local mode = self.mode_stat[self.current_mode]
+-		if mode == nil then
+-			return mode
+-		else
+-			return ' ' .. mode
+-		end
++		return ' '
+ 	end,
+ 	hl = function(self)
+ 		return { fg = self.mode_colors[self.current_mode] }
